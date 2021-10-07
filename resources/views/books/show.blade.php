@@ -35,8 +35,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Book:</strong>
-                
-                <a href="{{ route('books.upload', $book->id) }}" title="download">
+                <a href="{{ url('/'). '/upload/'. $book->id}}" title="download">
                             download the book
                         </a>
             </div>

@@ -14,10 +14,16 @@ use App\Http\Controllers\ProjectController;
 |
 */
 
+Route::get('/', function () {
+    return redirect('/books');
+});
 
+Use App\Http\Controllers\BooksController;
 Route::resource('books', 'App\Http\Controllers\BooksController');
 
-Route::get('books/{book}/upload/','BooksController@upload');
+Route::get('upload/{book_id}',function ($book_id) {
+    return BooksController::upload($book_id);
+});
 
 use App\Http\Controllers\UserController;
 Route::get('user', [ UserController::class, 'index' ]);

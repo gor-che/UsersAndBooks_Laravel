@@ -86,8 +86,9 @@ class BooksController extends Controller
         return view('books.show', compact('book'));
     }
 
-    public function upload(books $book){
-        return response()->download('storage/books/'. $book->url);
+    public static function upload($book_id){
+        $url = Books::find($book_id)->url;
+        return response()->download('storage/books/'. $url);
     }
 
     /**
